@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Button } from 'react-native';
 import MoviesContainer from '.';
 import { movieApi } from '../../api';
 import MoviesPresenter from './MoviesPresenter';
@@ -12,7 +11,7 @@ export default () => {
         upcoming: [],
         nowPlayingError: null,
         popularError: null,
-        upcoming: null
+        upcomingError: null
     })
     const getData = async() => {
         const [nowPlaying, nowPlayingError] = await movieApi.nowPlaying();

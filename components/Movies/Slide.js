@@ -3,6 +3,9 @@ import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import { apiImage } from "../../api";
 import Poster from "../Poster";
+import { TouchableOpacity } from "react-native";
+import Votes from "../Votes";
+import { trimText } from "../../utils";
 
 const Container = styled.View`
     height: 100%;
@@ -25,6 +28,7 @@ const Content = styled.View`
 
 const Data = styled.View`
     width: 50%;
+    align-items: flex-start;
 `;
 
 const Title = styled.Text`
@@ -34,10 +38,8 @@ const Title = styled.Text`
     margin-bottom: 7px;
 `;
 
-const Votes = styled.Text`
-    color: rgb(220, 220, 220);
-    margin-bottom: 5px;
-    font-size: 12px;
+const VotesContainer = styled.View`
+    margin-bottom: 7px;
 `;
 
 const Overview = styled.Text`
@@ -46,15 +48,33 @@ const Overview = styled.Text`
     font-weight: 500;
 `;
 
+const Button = styled.View`
+    margin-top: 10px;
+    background-color: #e74c3c;
+    padding: 7px 10px;
+    border-radius: 3px;
+`;
+
+const ButtonText = styled.Text`
+    color: white;
+`;
+
 const Slide = ({ id, title, backgroundImage, votes, overview, poster }) => (
     <Container>
         <BG source={{ uri: apiImage(backgroundImage) }} />
         <Content>
-            <Poster url={apiImage(poster)} />
+            <Poster url={poster} />
             <Data>
-                <Title>{title}</Title>
-                <Votes>✨ {votes} / 10</Votes>
-                <Overview>{overview.slice(0, 120)}</Overview>
+                <Title>{trimText(title, 40)}</Title>
+                <VotesContainer>
+                    <Votes votes={votes} />
+                </VotesContainer>
+                <Overview>{trimText(overview, 110)}...</Overview>
+                <TouchableOpacity>
+                    <Button>
+                        <ButtonText>View details</ButtonText>
+                    </Button>
+                </TouchableOpacity>
             </Data>
         </Content>
     </Container>
@@ -65,6 +85,7 @@ Slide.propTypes = {
     title: PropTypes.string.isRequired,
     backgroundImage: PropTypes.string.isRequired,
     votes: PropTypes.number.isRequired,
+    poster: PropTypes.string.isRequired,
     overview: PropTypes.string.isRequired
 };
 

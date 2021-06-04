@@ -1,27 +1,29 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import Swiper from 'react-native-web-swiper';
-import { ActivityIndicator, View, Dimensions } from 'react-native';
+import { Dimensions } from 'react-native';
 import Slide from '../../components/Movies/Slide';
+import Vertical from "../../components/Vertical";
+import Horizontal from "../../components/Horizontal";
+import ScrollContainer from '../../components/ScrollContainer';
+import HorizontalSlider from '../../components/HorizontalSlider';
+import List from '../../components/List';
 
-const { width:WIDTH, height: HEIGHT } = Dimensions.get("screen");
-
-const Container = styled.View`
-    flex: 1;
-    background-color: black;
-    justify-content: center;
-`;
+const { width:WIDTH, height: HEIGHT } = Dimensions.get("window");
 
 const SliderContainer = styled.View`
-    width: ${WIDTH}px;
+    width: 100%;
     height: ${HEIGHT / 4}px;
+    margin-bottom: 50px;
 `;
 
-export default ({ loading, nowPlaying }) => (
-    <Container>
-        {loading ? (
-            <ActivityIndicator color="white" size="small" />
-        ) : (
+const Container = styled.View`
+    
+`;
+
+export default ({ loading, nowPlaying, popular, upcoming }) => (
+    <ScrollContainer loading={loading}>
+        <>
         <SliderContainer>
             <Swiper controlsEnabled={false} loop timeout={3}>
                 {nowPlaying.map(movie => (
@@ -36,6 +38,31 @@ export default ({ loading, nowPlaying }) => (
                 ))}
             </Swiper>
         </SliderContainer>
-        )}
-    </Container>
-)
+        <Container>
+            <HorizontalSlider title={"Popular Movies"}>
+                {popular.map(movie => (
+                    <Vertical 
+                        id={movie.id}
+                        key={movie.id} 
+                        poster={movie.poster_path} 
+                        title={movie.title} 
+                        votes={movie.vote_average} 
+                    />
+                ))}
+            </HorizontalSlider>
+            <List title="Coming Soon">
+                {upcoming.map(movie => (
+                    <Horizontal 
+                        key={movie.id} 
+                        id={movie.id}
+                        title={movie.title}
+                        releaseDate={movie.release_date}
+                        poster={movie.poster_path}
+                        overview={movie.overview}
+                    />
+                ))}
+            </List>
+        </Container>
+        </>
+    </ScrollContainer>
+);
