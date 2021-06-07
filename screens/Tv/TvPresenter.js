@@ -21,31 +21,40 @@ const SliderContainer = styled.View`
     margin-bottom: 50px;
 `;
 
-export default ({ loading, popular, topRated, today, thisWeek }) => (
-    <ScrollContainer loading={loading}>
+export default ({ refreshFn, loading, popular, topRated, today, thisWeek }) => (
+    <ScrollContainer refreshFn={refreshFn} loading={loading}>
         <Container>
             <HorizontalSlider title="Popular Shows">
-                {popular.map(show => <Vertical 
-                    id={show.id}
+                {popular.map(show => 
+                <Vertical
+                    isTv={true}
                     key={show.id} 
-                    poster={show.poster_path} 
-                    title={show.name} 
-                    votes={show.vote_average} 
+                    id={show.id} 
+                    title={show.name}
+                    overview={show.overview}
+                    votes={show.vote_average}
+                    backgroundImage={show.backdrop_path}
+                    poster={show.poster_path}
                 />)}
             </HorizontalSlider>
             <HorizontalSlider title="Top Rated">
-                {topRated.map(show => <Vertical 
-                    id={show.id}
+                {topRated.map(show => 
+                <Vertical
+                    isTv={true}
                     key={show.id} 
-                    poster={show.poster_path} 
-                    title={show.name} 
-                    votes={show.vote_average} 
+                    id={show.id} 
+                    title={show.name}
+                    overview={show.overview}
+                    votes={show.vote_average}
+                    backgroundImage={show.backdrop_path}
+                    poster={show.poster_path}
                 />)}
             </HorizontalSlider>
             <SliderContainer>
             <Swiper controlsEnabled={false} loop timeout={3}>
                 {thisWeek.map(show => (
-                <Slide key={show.id} 
+                <Slide 
+                key={show.id} 
                 id={show.id} 
                 title={show.name}
                 overview={show.overview}
@@ -59,11 +68,14 @@ export default ({ loading, popular, topRated, today, thisWeek }) => (
             <List title="Airing Today">
                 {today.map(show => (
                     <Horizontal 
+                        isTv={true}
                         key={show.id} 
                         id={show.id} 
                         title={show.name}
-                        poster={show.poster_path}
                         overview={show.overview}
+                        votes={show.vote_average}
+                        backgroundImage={show.backdrop_path}
+                        poster={show.poster_path}
                      />
                 ))}
             </List>

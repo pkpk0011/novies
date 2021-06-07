@@ -21,19 +21,20 @@ const Container = styled.View`
     
 `;
 
-export default ({ loading, nowPlaying, popular, upcoming }) => (
-    <ScrollContainer loading={loading}>
+export default ({ refreshFn, loading, nowPlaying, popular, upcoming }) => (
+    <ScrollContainer refreshFn={refreshFn} loading={loading}>
         <>
         <SliderContainer>
             <Swiper controlsEnabled={false} loop timeout={3}>
                 {nowPlaying.map(movie => (
-                <Slide key={movie.id} 
-                id={movie.id} 
-                title={movie.original_title}
-                overview={movie.overview}
-                votes={movie.vote_average}
-                backgroundImage={movie.backdrop_path}
-                poster={movie.poster_path}
+                <Slide
+                    key={movie.id} 
+                    id={movie.id} 
+                    title={movie.original_title}
+                    overview={movie.overview}
+                    votes={movie.vote_average}
+                    backgroundImage={movie.backdrop_path}
+                    poster={movie.poster_path}
                 />
                 ))}
             </Swiper>
@@ -42,11 +43,13 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
             <HorizontalSlider title={"Popular Movies"}>
                 {popular.map(movie => (
                     <Vertical 
-                        id={movie.id}
                         key={movie.id} 
-                        poster={movie.poster_path} 
-                        title={movie.title} 
-                        votes={movie.vote_average} 
+                        id={movie.id} 
+                        title={movie.original_title}
+                        overview={movie.overview}
+                        votes={movie.vote_average}
+                        backgroundImage={movie.backdrop_path}
+                        poster={movie.poster_path}
                     />
                 ))}
             </HorizontalSlider>
@@ -54,11 +57,13 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
                 {upcoming.map(movie => (
                     <Horizontal 
                         key={movie.id} 
-                        id={movie.id}
-                        title={movie.title}
-                        releaseDate={movie.release_date}
-                        poster={movie.poster_path}
+                        id={movie.id} 
+                        title={movie.original_title}
                         overview={movie.overview}
+                        votes={movie.vote_average}
+                        backgroundImage={movie.backdrop_path}
+                        poster={movie.poster_path}
+                        releaseDate={movie.release_date}
                     />
                 ))}
             </List>

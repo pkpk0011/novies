@@ -5,15 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d8a935-400d-462c-91bd-d61569497ce6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Horizontal.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Horizontal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/HorizontalSlider.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/HorizontalSlider.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Movies/Slide.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Movies/Slide.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Poster.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Poster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ScrollContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ScrollContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Search/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Search/Input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Vertical.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Vertical.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Detail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Movies/MoviesContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Movies/MoviesContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Movies/MoviesPresenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Movies/MoviesPresenter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Tv.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Search/SearchContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Search/SearchContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Search/SearchPresenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Search/SearchPresenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Tv/TvContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Tv/TvContainer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Tv/TvPresenter.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Tv/TvPresenter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
