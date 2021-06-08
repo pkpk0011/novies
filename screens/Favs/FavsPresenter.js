@@ -42,7 +42,7 @@ export default ({ results }) => {
                         y: dy
                     },
                     useNativeDriver: true
-                }).start();
+                }).start(nextCard);
             } else if(dx <= -250){
                 Animated.spring(position, {
                     toValue: {
