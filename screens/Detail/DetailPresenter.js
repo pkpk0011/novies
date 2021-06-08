@@ -1,6 +1,5 @@
 import React from 'react';
 import { ActivityIndicator, Dimensions, Touchable } from 'react-native';
-import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import { apiImage } from '../../api';
 import Link from '../../components/Detail/Link';
@@ -60,7 +59,7 @@ const DataValue = styled.Text`
 `;
 
 export default ({ openBrowser, result, loading }) => (
-            <ScrollContainer loading={false} contentContainerStyle={{paddingBottom: 80}}>
+            <ScrollContainer loading={false} contentContainerStyle={{paddingBottom: 80}} >
                 <>
                 <Header>
                 <BG source={{uri: apiImage(result.backgroundImage, "")}} />
@@ -68,7 +67,7 @@ export default ({ openBrowser, result, loading }) => (
                         <Poster url={result.poster} />
                         <Info>
                             <Title>{result.title}</Title>
-                            {result.votes && <Votes votes={result.votes} />}
+                            {result.votes ? (<Votes votes={result.votes} />) : null}
                         </Info>
                     </Container>
                 </Header>
@@ -85,7 +84,7 @@ export default ({ openBrowser, result, loading }) => (
                         <DataName>Languages</DataName>
                         <DataValue>{result.spoken_languages.map(l => `${l.name} `)}</DataValue>
                     </>
-                    ) : null};
+                    ) : null}
                     {result.release_date ? (
                     <>
                         <DataName>Release Date</DataName>
