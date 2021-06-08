@@ -48,5 +48,5 @@ export default ({ navigation, route: {
         await WebBrowser.openBrowserAsync(url);
     };
 
-    return <DetailPresenter openBrowser={openBrowser} {...detail} />;
+    return <DetailPresenter openBrowser={openBrowser} refreshFn={getData} {...detail} />;
 };

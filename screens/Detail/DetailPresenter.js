@@ -58,11 +58,11 @@ const DataValue = styled.Text`
     font-weight: 500;
 `;
 
-export default ({ openBrowser, result, loading }) => (
-            <ScrollContainer loading={false} contentContainerStyle={{paddingBottom: 80}} >
+export default ({ openBrowser, result, loading, refreshFn }) => (
+            <ScrollContainer refreshFn={refreshFn} loading={false} contentContainerStyle={{paddingBottom: 80}} >
                 <>
                 <Header>
-                <BG source={{uri: apiImage(result.backgroundImage, "")}} />
+                <BG source={{uri: apiImage(result.backgroundImage, null)}} />
                     <Container>
                         <Poster url={result.poster} />
                         <Info>
