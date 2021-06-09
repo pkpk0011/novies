@@ -17,7 +17,7 @@ const Title = styled.Text`
     font-weight: 500;
     margin: 10px 0px 5px 0px;
 `;
-
+// tv가 들어왔을 때 name을 적용시켜야함
 const Vertical = ({ isTv=false, id, title, backgroundImage, votes, overview, poster }) => {
     const navigation = useNavigation();
     const goToDetail = () => {
